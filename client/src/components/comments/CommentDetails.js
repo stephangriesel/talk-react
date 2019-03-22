@@ -1,25 +1,23 @@
-// components/tasks/TaskDetails.js
-
 import React, { Component } from 'react';
 import axios from 'axios';
 
 
-class TaskDetails extends Component {
+class CommentDetails extends Component {
   constructor(props){
     super(props);
     this.state = {};
   }
 
   componentDidMount(){
-    this.getTheTask();
+    this.getTheComment();
   }
 
-  getTheTask = () => {
+  getTheComment = () => {
     const { params } = this.props.match;
-    axios.get(`http://localhost:5000/api/projects/${params.id}/tasks/${params.taskId}`)
+    axios.get(`http://localhost:5000/api/topics/${params.id}/comments/${params.commentId}`)
     .then( responseFromApi =>{
-      const theTask = responseFromApi.data;
-      this.setState(theTask);
+      const theComment = responseFromApi.data;
+      this.setState(theComment);
     })
     .catch((err)=>{
         console.log(err)
@@ -36,4 +34,4 @@ class TaskDetails extends Component {
   }
 }
 
-export default TaskDetails;
+export default CommentDetails;

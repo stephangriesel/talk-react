@@ -26,25 +26,25 @@ class TopicList extends Component {
   render(){
     return(
       <div>
-        <div style={{width: '60%', float:"left"}}>
+        <div>
           { this.state.listOfTopics.map( topic => {
             return (
               <div key={topic._id}>
                 <Link to={`/topics/${topic._id}`}> {/* don’t forget to give each element the database ID as the key with key={topic._id}) */}
                   <h3>{topic.title}</h3>
                 </Link>
-                {/* <ul>
+                {/* <ul> // << breaks app, troubleshoot
                   { topic.comments.map((comment, index) => {
                     return <li key={index}>{comment.title}</li>
                   }) }
                 </ul>  */}
-                <p style={{maxWidth: '400px'}} >{topic.description} </p>
+                <p>{topic.description} </p>
               </div>
             )})
           }
         </div>
-        <div style={{width: '40%', float:"right"}}>
-            <AddTopic getData={() => this.getAllTopics()}/> {/* <== !!! */}
+        <div>
+            <AddTopic getData={() => this.getAllTopics()}/>
         </div>
       </div>
     )
