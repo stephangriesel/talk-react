@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import TopicList from './components/topics/TopicList';
+import ProjectList from './components/projects/ProjectList';
 import Navbar from './components/navbar/Navbar';
 import Welcome from './components/welcome/Welcome'
-import TopicDetails from './components/topics/TopicDetails';
-import CommentDetails from './components/tasks/CommentDetails';
+import ProjectDetails from './components/projects/ProjectDetails';
+import TaskDetails from './components/tasks/TaskDetails';
 
 class App extends Component {
   render() {
@@ -13,9 +13,9 @@ class App extends Component {
       <div className="App">
        <Navbar />
         <Switch>
-          <Route exact path="/topics" component={TopicList}/>
-          <Route exact path="/topics/:id" component={TopicDetails} />
-          <Route exact path="/topics/:id/tasks/:taskId" component={CommentDetails} />
+          <Route exact path="/projects" component={ProjectList}/>
+          <Route exact path="/projects/:id" component={ProjectDetails} />
+          <Route exact path="/projects/:id/tasks/:taskId" component={TaskDetails} />
         </Switch>
       <Welcome />
       </div>

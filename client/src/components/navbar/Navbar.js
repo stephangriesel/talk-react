@@ -6,7 +6,7 @@ const navbar = () => {
   return (
     <nav className="nav">
       <ul>
-        <li><Link to="/projects" style={{ textDecoration: 'none' }}>Projects</Link></li>
+        <li><Link to="/topics" style={{ textDecoration: 'none' }}>Topics</Link></li>
     </ul>
     </nav>
   )

@@ -68,7 +68,7 @@ router.delete('/topics/:id', (req, res, next)=>{
     return;
   }
 
-  Topics.findByIdAndRemove(req.params.id) // remove the topic
+  Topic.findByIdAndRemove(req.params.id) // remove the topic
     .then(() => {
       res.json({ message: `Topic with ${req.params.id} is removed successfully.` });
     })

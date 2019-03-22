@@ -80,7 +80,7 @@ const index = require('./routes/index');
 
 app.use('/', index);
 
-app.use('/api', require('./routes/topic-routes'));
-app.use('/api', require('./routes/comment-routes'));
+app.use('/api', require('./routes/project-routes'));
+app.use('/api', require('./routes/task-routes'));
 
 module.exports = app;

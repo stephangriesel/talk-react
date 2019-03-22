@@ -1,24 +1,8 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #000000;
-  color:#FFFFFF;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF;
-}
-
-ul li {
-  list-style: none;
-}
+  color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
