@@ -1,5 +1,18 @@
 ul {
-    margin:0;
-    padding:0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
+.nav {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc {}
+
+.links ul {
+    display: flex;
+}
