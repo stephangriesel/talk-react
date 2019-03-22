@@ -63,13 +63,14 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Express - Backend For The Forum';
+app.locals.desc = 'Lady doing queries to the DB, 247';
 
 
 // ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000'] // <== this will be the URL of our React app (it will be running on port 3000)
+  origin: ['http://localhost:3000'] // Link to frontend, can always use more than one, its an array ;)
 }));
 
 

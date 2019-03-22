@@ -3,6 +3,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import ProjectList from './components/projects/ProjectList';
 import Navbar from './components/navbar/Navbar';
+import Welcome from './components/welcome/Welcome'
 import ProjectDetails from './components/projects/ProjectDetails';
 import TaskDetails from './components/tasks/TaskDetails';
 
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/projects/:id" component={ProjectDetails} />
           <Route exact path="/projects/:id/tasks/:taskId" component={TaskDetails} />
         </Switch>
+      <Welcome />
       </div>
     );
   }
