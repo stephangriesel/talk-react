@@ -4,17 +4,21 @@ import axios from 'axios';
 class AddTopic extends Component {
   constructor(props){
       super(props);
-      this.state = { title: "", description: "" };
+      this.state = { title: "", description: "", owner: "" }; // << QUESTION FOR TA: this might be the reason why it is not working, I am not passing user, but if I do I can't get it to work?
   }
    
   handleFormSubmit = (event) => {
     event.preventDefault();
     const title = this.state.title;
     const description = this.state.description;
-    axios.post("http://localhost:5000/api/topics", { title, description })
+    const owner = this.state.owner;
+    axios.post("http://localhost:5000/api/topics", { 
+      title, description, owner
+    }) 
     .then( () => {
-        // this.props.getData();
-        this.setState({title: "", description: ""});
+        this.props.getData();
+        this.setState({title: "", description: "", owner: "" }); 
+        debugger
     })
     .catch( error => console.log(error) )
   }

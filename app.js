@@ -66,14 +66,14 @@ app.locals.title = 'Express - Backend For The Forum';
 app.locals.desc = 'Lady doing queries to the DB, 247';
 
 
-// ADD CORS SETTINGS HERE TO ALLOW CROSS-ORIGIN INTERACTION:
+// CORS
 app.use(cors({
   credentials: true,
   origin: ['http://localhost:3000'] // Link to frontend, can always use more than one, its an array ;)
 }));
 
 
-// ROUTES MIDDLEWARE STARTS HERE:
+// ROUTES MIDDLEWARE:
 const index = require('./routes/index');
 
 // AUTH ROUTES 
