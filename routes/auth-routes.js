@@ -4,10 +4,9 @@ const authRoutes = express.Router();
 const passport   = require('passport');
 const bcrypt     = require('bcryptjs');
 
-// require the user model !!!!
 const User       = require('../models/user-model');
 
-
+// CREATE NEW USER & SAVE TO DB
 authRoutes.post('/signup', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
