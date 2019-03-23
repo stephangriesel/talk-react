@@ -16,8 +16,6 @@ const passport      = require('passport');
 
 require('./configs/passport');
 
-// IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
-
 mongoose
   .connect('mongodb://localhost/fullstack-react-project', {useNewUrlParser: true})
   .then(x => {
@@ -52,7 +50,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-// ADD SESSION SETTINGS HERE:
+// SESSION SETTINGS
 
 
 // USE passport.initialize() and passport.session() HERE:
