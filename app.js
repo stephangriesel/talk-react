@@ -61,7 +61,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// default value for title local
+// TITLE & DESCRIPTION BACKEND
 app.locals.title = 'Express - Backend For The Forum';
 app.locals.desc = 'Lady doing queries to the DB, 247';
 

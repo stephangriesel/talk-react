@@ -9,7 +9,8 @@ router.post('/topics', (req, res, next)=>{
   Topic.create({ //creates new topic collection in db
     title: req.body.title,
     description: req.body.description,
-    comments: []
+    comments: [],
+    owner: req.user._id // assign user to post
   })
     .then(response => {
       res.json(response);
@@ -46,7 +47,7 @@ router.get('/topics/:id', (req, res, next)=>{
 })
 
 // PUT route, UPDATE OBJECT
-router.put('/api/topics/:id', (req, res, next)=>{
+router.put('/topics/:id', (req, res, next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
     return;

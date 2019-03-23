@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Comment = require('../models/comment-model');
-const Topic = require('../models/project-model');
+const Topic = require('../models/topic-model');
 const router  = express.Router();
 
 // GET route => to retrieve a specific comment
 router.get('/topics/:topicId/comments/:commentId', (req, res, next) => {
   Comment.findById(req.params.commentId)
-  .then(theTask =>{
-      res.json(theTask);
+  .then(theComment =>{
+      res.json(theComment);
   })
   .catch( err =>{
       res.json(err);
@@ -21,10 +21,10 @@ router.post('/comments', (req, res, next)=>{
   Comment.create({
       title: req.body.title,
       description: req.body.description,  
-      project: req.body.projectID
+      topic: req.body.topicID
   })
     .then(response => {
-        Topic.findByIdAndUpdate(req.body.projectID, { $push:{ comments: response._id } })
+        Topic.findByIdAndUpdate(req.body.topicID, { $push:{ comments: response._id } })
         .then(theResponse => {
             res.json(theResponse);
         })
