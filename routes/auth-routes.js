@@ -66,7 +66,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
 // USER LOGIN
 authRoutes.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, theUser, failureDetails) => { // 
+    passport.authenticate('local', (err, theUser, failureDetails) => { // keep the authenticate methods in mind: http://www.passportjs.org/docs/authenticate/ as well as the local argument, It refers to local strategy
         if (err) { // if error message 500 send message
             res.status(500).json({ message: 'Something went wrong authenticating user' });
             return;
@@ -80,7 +80,7 @@ authRoutes.post('/login', (req, res, next) => {
         }
 
         // save user in session
-        req.login(theUser, (err) => {
+        req.login(theUser, (err) => { // keep the login method in mind: http://www.passportjs.org/docs/login/
             if (err) { 
                 res.status(500).json({ message: 'Session save went bad.' });
                 return;
@@ -90,6 +90,23 @@ authRoutes.post('/login', (req, res, next) => {
             res.status(200).json(theUser);
         });
     })(req, res, next);
+});
+
+// LOG OUT
+authRoutes.post('/logout', (req, res, next) => {
+    // req.logout() is defined by passport
+    req.logout();
+    res.status(200).json({ message: 'Log out success!' });
+});
+
+// LOGGED IN
+authRoutes.get('/loggedin', (req, res, next) => {
+    // req.isAuthenticated() is defined by passport
+    if (req.isAuthenticated()) {
+        res.status(200).json(req.user);
+        return;
+    }
+    res.status(403).json({ message: 'Unauthorized' });
 });
 
 module.exports = authRoutes;
