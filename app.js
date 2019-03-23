@@ -50,11 +50,16 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-// SESSION SETTINGS
+// SESSION SETTINGS - maintain the sessions and our users in it
+app.use(session({
+  secret:"some secret goes here",
+  resave: true,
+  saveUninitialized: true
+}));
 
-
-// USE passport.initialize() and passport.session() HERE:
-
+// INIT passport.initialize() & passport.session():
+app.use(passport.initialize());
+app.use(passport.session());
 
 // default value for title local
 app.locals.title = 'Express - Backend For The Forum';
