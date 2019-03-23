@@ -57,7 +57,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// INIT passport.initialize() & passport.session():
+// INIT passport.initialize() & passport.session(): (working)
 app.use(passport.initialize());
 app.use(passport.session());
 
