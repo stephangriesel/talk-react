@@ -52,8 +52,7 @@ class AddComment extends Component {
 
   render(){
     return(
-      <div>
-            <hr />
+      <div className="add-comment">
             <button onClick={() => this.toggleForm()}> Add Comment </button>
             { this.showAddCommentForm() }
       </div>

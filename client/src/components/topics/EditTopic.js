@@ -48,7 +48,6 @@ class EditTopic extends Component {
   render() {
     return (
       <div>
-        <hr />
         <h3>Edit form</h3>
         <form onSubmit={this.handleFormSubmit}>
           <label>Title:</label>
