@@ -3,8 +3,7 @@ import axios from 'axios';
 
 class AddComment extends Component {
   constructor(props){
-      super(props);          //             will help us to toggle add Comment form   
-                            //                      |
+      super(props);
       this.state = { title: "", description: "", isShowing: false };
   }
    
@@ -12,16 +11,9 @@ class AddComment extends Component {
     event.preventDefault();
     const title = this.state.title;
     const description = this.state.description;
-    const topicID = this.props.theTopic._id; // <== we need to know to which topic the created Comment belong, so we need to get its 'id'
-                                                // it has to be the 'id' because we are referencing topic 
-                                                // by its id in the Comment model on the server side ( topic: {type: Schema.Types.ObjectId, ref: 'topic'})
-    
-    // { title, description, topicID } => this is 'req.body' that will be received on the server side in this route, 
-    // so the names have to match
+    const topicID = this.props.theTopic._id;
     axios.post("http://localhost:5000/api/comments", { title, description, topicID })
     .then( () => {
-          // after submitting the form, retrieve topic one more time so the new Comment is displayed as well 
-          //              |
         this.props.getTheTopic();
         this.setState({title: "", description: ""});
     })
