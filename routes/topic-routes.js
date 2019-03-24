@@ -9,7 +9,7 @@ router.post('/topics', (req, res, next)=>{
   Topic.create({ //creates new topic collection in db
     title: req.body.title,
     description: req.body.description,
-    comments: [],
+    comments: []
     // owner: req.user._id // assign user to post // << COMMENTED OUT FOR TA question, refer to addtopic.js
   })
     .then(response => {
@@ -31,7 +31,7 @@ router.get('/topics', (req, res, next) => { // get topics collection
     })
 });
 
-// GET ROUTE TO DETAILED VIEW 
+// GET ROUTE TO DETAILED VIEW (WORKING)
 router.get('/topics/:id', (req, res, next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });
@@ -46,7 +46,7 @@ router.get('/topics/:id', (req, res, next)=>{
     })
 })
 
-// PUT route, UPDATE OBJECT
+// PUT route, UPDATE OBJECT (WORKING)
 router.put('/topics/:id', (req, res, next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: 'Specified id is not valid' });

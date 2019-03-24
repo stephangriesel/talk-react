@@ -37,14 +37,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
       
-
+// Handlebars
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -81,6 +80,7 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/api', authRoutes);
 
 app.use('/', index);
+app.use('/users', require('./routes/users'));
 
 app.use('/api', require('./routes/topic-routes'));
 app.use('/api', require('./routes/comment-routes'));
