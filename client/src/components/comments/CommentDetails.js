@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 class CommentDetails extends Component {
   constructor(props){
@@ -29,6 +29,7 @@ class CommentDetails extends Component {
       <div>
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
+        <Link to={'/topics'}>Back to topics</Link>
       </div>
     )
   }
