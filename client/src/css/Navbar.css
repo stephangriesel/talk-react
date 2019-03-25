@@ -48,3 +48,13 @@ nav a:hover {
 .links ul {
     display: flex;
 }
+
+@media screen and (max-width: 500px) {
+    .insideWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 20px;
+    }
+}
+

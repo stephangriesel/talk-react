@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import EditTopic from './EditTopic';
 import AddComment from '../comments/AddComment';
+import '../../css/TopicDetails.css';
+
 
 class TopicDetails extends Component {
   constructor(props) {
@@ -70,6 +72,8 @@ class TopicDetails extends Component {
       <div>
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
+        <div>{this.renderAddCommentForm()} </div>
+
 
         {/* show the comment heading only if there are comments */}
         {this.state.comments && this.state.comments.length > 0 && <h3>Comments </h3>}
@@ -86,9 +90,12 @@ class TopicDetails extends Component {
         })}
 
         <div>{this.renderEditForm()}</div> {/* called inside the render() method and what it does is basically this: checks if this.state has any properties (we picked title), and if that’s true, it’s invoking the getSingleTopic() method which gets the topic object from our API and sets it to the state of the component. On the next execution of renderEditForm(), it’s rendering <EditTopic /> component with props passed down to itself.*/}
-        <div><button onClick={() => this.deleteTopic()}>Delete topic</button></div> {/* no button? */}
-        <div>{this.renderAddCommentForm()} </div>
-        <Link to={'/topics'}>Back to topics</Link>
+        <div>
+          <button className="btnRed" onClick={() => this.deleteTopic()}>Delete topic</button>
+        </div>
+        <div className="textNav">
+          <Link to={'/topics'}><i className="fas fa-arrow-left"></i> Back to topics</Link>
+        </div>
       </div>
     )
   }

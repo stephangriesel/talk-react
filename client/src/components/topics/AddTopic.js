@@ -38,7 +38,7 @@ class AddTopic extends Component {
   render() {
     return (
       <div className="addTopic-wrapper">
-      <h2><i class="far fa-comments"></i> Join the discussion</h2>
+      <h2><i className="far fa-comments"></i> Join the discussion</h2>
         <form onSubmit={this.handleFormSubmit}>
         {/* <label>Title:</label> */}
           <div className="topicTitle">
