@@ -9,7 +9,7 @@
 //     this.service = new AuthService(); // instance of AuthService
 //   }
 
-//   // handleChange() and handleSubmit() will be added here
+// //   handleChange() and handleSubmit() will be added here
 
 //   render(){
 //     return(

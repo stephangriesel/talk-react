@@ -35,7 +35,7 @@ class AddTopic extends Component {
     this.setState({ [name]: value });
   }
 
-  toggleForm = () => {
+  toggleForm = () => { 
     if (!this.state.isShowing) {
       this.setState({ isShowing: true });
     } else {
@@ -63,7 +63,7 @@ class AddTopic extends Component {
     }
   }
 
-  render() {
+  render() { // QUESTION TO TA: if logged in show this button
     return (
       <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>

@@ -8,7 +8,7 @@ const navbar = () => {
       <div className="insideWrapper">
         <div className="desc">
           <Link to="/topics">
-            The<strong>FORUM</strong>
+            The<strong>TALK</strong>
           </Link>
         </div>
         <div className="links">
