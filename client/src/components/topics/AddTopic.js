@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../../css/AddTopic.css';
+
 
 class AddTopic extends Component {
   constructor(props) {
@@ -35,14 +37,18 @@ class AddTopic extends Component {
 
   render() {
     return (
-      <div>
+      <div className="addTopic-wrapper">
+      <h2><i class="far fa-comments"></i> Join the discussion</h2>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Title:</label>
-          <input type="text" name="title" value={this.state.title} onChange={e => this.handleChange(e)} />
-          <label>Description:</label>
-          <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
-
-          <input type="submit" value="Submit" />
+        {/* <label>Title:</label> */}
+          <div className="topicTitle">
+            <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
+          </div>
+          {/* <label>Description:</label> */}
+          <div className="topicDesc">
+            <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+          </div>
+          <button type="submit" value="Submit">Submit</button>
         </form>
       </div>
     )

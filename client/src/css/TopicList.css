@@ -1,0 +1,26 @@
+/* 
+
+Lightblue: #4384f4
+Lighter blue: #80b4f0
+DarkBlue: #07327d
+Brownish: #7b7b7b 
+
+*/
+
+.topicList-wrapper {
+    margin:30px;
+}
+
+.topicBox {
+    border-radius: 10px;
+    margin:10px;
+    padding:15px;
+    background-color: rgba(128, 180, 240, 0.8);
+    width:200px;
+    float: left;
+}
+
+.topicBox h3, p {
+    padding:0;
+    margin:0;
+}

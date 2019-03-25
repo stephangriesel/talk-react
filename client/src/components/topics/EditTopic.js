@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../../css/EditTopic.css';
+
 
 class EditTopic extends Component {
   constructor(props) {
@@ -47,15 +49,18 @@ class EditTopic extends Component {
 
   render() {
     return (
-      <div>
+      <div className="editTopic-wrapper">
         <h3>Edit form</h3>
         <form onSubmit={this.handleFormSubmit}>
-          <label>Title:</label>
+          {/* <label>Title:</label> */}
+          <div className="topicTitle">
           <input type="text" name="title" value={this.state.title} onChange={e => this.handleChangeTitle(e)} />
-          <label>Description:</label>
+          </div>
+          {/* <label>Description:</label> */}
+          <div className="topicDesc">
           <textarea name="description" value={this.state.description} onChange={e => this.handleChangeDesc(e)} />
-
-          <input type="submit" value="Submit" />
+          </div>
+          <button type="submit" value="Submit">APPLY CHANGE</button>
         </form>
       </div>
     )

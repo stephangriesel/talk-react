@@ -5,7 +5,7 @@ import '../../css/Navbar.css';
 const navbar = () => {
   return (
     <nav>
-      <div class="insideWrapper">
+      <div className="insideWrapper">
         <div className="desc">The<strong>FORUM</strong></div>
         <div className="links">
           <ul>

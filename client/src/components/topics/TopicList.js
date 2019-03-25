@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
 import AddTopic from './AddTopic';
+import '../../css/TopicList.css';
+
 
 class TopicList extends Component {
   constructor() {
@@ -27,27 +28,28 @@ class TopicList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="topicList-wrapper">
+        <div>
+          <AddTopic getData={() => this.getAllTopics()} />
+        </div>
+
         <div>
           {this.state.listOfTopics.map(topic => {
             return (
-              <div key={topic._id}>
+              <div key={topic._id} className="topicBox">
                 <Link to={`/topics/${topic._id}`}> {/* don’t forget to give each element the database ID as the key with key={topic._id}) */}
-                  <h3>{topic.title}</h3>
+                  <h3><i class="fas fa-newspaper"></i> {topic.title}</h3>
                 </Link>
                 {/* <ul> // << breaks app, troubleshoot
                   { topic.comments.map((comment, index) => {
                     return <li key={index}>{comment.title}</li>
                   }) }
                 </ul>  */}
-                <p>{topic.description} </p>
+                <p><i class="far fa-comments"></i> {topic.description} </p>
               </div>
             )
           })
           }
-        </div>
-        <div>
-          <AddTopic getData={() => this.getAllTopics()} />
         </div>
       </div>
     )
