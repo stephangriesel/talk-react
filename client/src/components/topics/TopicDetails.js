@@ -79,9 +79,10 @@ class TopicDetails extends Component {
         {/* map through the array of comments and... */}
         {this.state.comments && this.state.comments.map((comment, index) => {
           return (
-            <div key={index}>
+            <div className="commentLine" key={index}>
               {/* ... make each comment's title a link that goes to the comment details page */}
-              <Link to={`/topics/${this.state._id}/comments/${comment._id}`}>
+              <div><i className="fas fa-comment-dots"></i></div>
+              <Link to={`/topics/${this.state._id}/comments/${comment._id}`}> 
                 {comment.title}
               </Link>
             </div>

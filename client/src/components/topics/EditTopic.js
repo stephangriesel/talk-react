@@ -78,7 +78,7 @@ class EditTopic extends Component {
   render() {
     return (
       <div className="editTopic-wrapper">
-          <button onClick={() => this.toggleForm()}><i class="far fa-edit"></i>EDIT YOUR TOPIC</button>
+          <button onClick={() => this.toggleForm()}><i className="far fa-edit"></i>EDIT YOUR TOPIC</button>
           {this.showEditTopicForm()}
       </div>
     )

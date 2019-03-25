@@ -9,3 +9,9 @@
 .commentBtn {
     margin: 20px 0;
 }
+
+.commentLine {
+    border-bottom: solid 0.5px #ececec26;
+    margin:5px;
+    padding:10px;
+}
