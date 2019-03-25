@@ -47,21 +47,39 @@ class EditTopic extends Component {
     })
   }
 
+  toggleForm = () => {
+    if (!this.state.isShowing) {
+      this.setState({ isShowing: true });
+    } else {
+      this.setState({ isShowing: false });
+    }
+  }
+
+  showEditTopicForm = () => {
+    if (this.state.isShowing) {
+      return (
+        <div className="editTopic-wrapper">
+          <form onSubmit={this.handleFormSubmit}>
+            {/* <label>Title:</label> */}
+            <div className="topicTitle">
+              <input type="text" name="title" value={this.state.title} onChange={e => this.handleChangeTitle(e)} />
+            </div>
+            {/* <label>Description:</label> */}
+            <div className="topicDesc">
+              <textarea name="description" value={this.state.description} onChange={e => this.handleChangeDesc(e)} />
+            </div>
+            <button type="submit" value="Submit">APPLY CHANGE</button>
+          </form>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="editTopic-wrapper">
-        <h3>Edit form</h3>
-        <form onSubmit={this.handleFormSubmit}>
-          {/* <label>Title:</label> */}
-          <div className="topicTitle">
-          <input type="text" name="title" value={this.state.title} onChange={e => this.handleChangeTitle(e)} />
-          </div>
-          {/* <label>Description:</label> */}
-          <div className="topicDesc">
-          <textarea name="description" value={this.state.description} onChange={e => this.handleChangeDesc(e)} />
-          </div>
-          <button type="submit" value="Submit">APPLY CHANGE</button>
-        </form>
+          <button onClick={() => this.toggleForm()}><i class="far fa-edit"></i>EDIT YOUR TOPIC</button>
+          {this.showEditTopicForm()}
       </div>
     )
   }

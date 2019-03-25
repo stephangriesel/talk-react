@@ -56,7 +56,7 @@ class AddTopic extends Component {
             <div className="topicDesc">
               <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
             </div>
-            <button type="submit" value="Submit">Submit</button>
+            <button type="submit" value="Submit">SUBMIT</button>
           </form>
         </div>
       )
