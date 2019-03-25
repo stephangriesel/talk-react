@@ -70,7 +70,7 @@ class TopicDetails extends Component {
   render() { // accessing to topic's properties through this.state.title and this.state.description.
     return (
       <div>
-        <h1>{this.state.title}</h1>
+        <h1 className="uppercaseText">{this.state.title}</h1>
         <p>{this.state.description}</p>
 
 
