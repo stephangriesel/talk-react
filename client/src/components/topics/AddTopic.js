@@ -35,21 +35,41 @@ class AddTopic extends Component {
     this.setState({ [name]: value });
   }
 
+  toggleForm = () => {
+    if (!this.state.isShowing) {
+      this.setState({ isShowing: true });
+    } else {
+      this.setState({ isShowing: false });
+    }
+  }
+
+  showAddTopicForm = () => {
+    if (this.state.isShowing) {
+      return (
+        <div className="addTopic-wrapper">
+          <h2><i className="far fa-comments"></i> Join the discussion</h2>
+          <form onSubmit={this.handleFormSubmit}>
+            {/* <label>Title:</label> */}
+            <div className="topicTitle">
+              <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
+            </div>
+            {/* <label>Description:</label> */}
+            <div className="topicDesc">
+              <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+            </div>
+            <button type="submit" value="Submit">Submit</button>
+          </form>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
       <div className="addTopic-wrapper">
-      <h2><i className="far fa-comments"></i> Join the discussion</h2>
-        <form onSubmit={this.handleFormSubmit}>
-        {/* <label>Title:</label> */}
-          <div className="topicTitle">
-            <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
-          </div>
-          {/* <label>Description:</label> */}
-          <div className="topicDesc">
-            <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
-          </div>
-          <button type="submit" value="Submit">Submit</button>
-        </form>
+          <button onClick={() => this.toggleForm()}>
+          Join the discussion</button>
+          {this.showAddTopicForm()}
       </div>
     )
   }

@@ -72,7 +72,6 @@ class TopicDetails extends Component {
       <div>
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
-        <div>{this.renderAddCommentForm()} </div>
 
 
         {/* show the comment heading only if there are comments */}
@@ -88,6 +87,9 @@ class TopicDetails extends Component {
             </div>
           )
         })}
+
+        <div className="commentBtn">{this.renderAddCommentForm()} </div>
+
 
         <div>{this.renderEditForm()}</div> {/* called inside the render() method and what it does is basically this: checks if this.state has any properties (we picked title), and if that’s true, it’s invoking the getSingleTopic() method which gets the topic object from our API and sets it to the state of the component. On the next execution of renderEditForm(), it’s rendering <EditTopic /> component with props passed down to itself.*/}
         <div>
