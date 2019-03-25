@@ -47,7 +47,6 @@ class AddTopic extends Component {
     if (this.state.isShowing) {
       return (
         <div className="addTopic-wrapper">
-          <h2><i className="far fa-comments"></i> Join the discussion</h2>
           <form onSubmit={this.handleFormSubmit}>
             {/* <label>Title:</label> */}
             <div className="topicTitle">
@@ -68,7 +67,7 @@ class AddTopic extends Component {
     return (
       <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>
-          Join the discussion</button>
+          <i className="far fa-comments"></i> Join the discussion</button>
           {this.showAddTopicForm()}
       </div>
     )
