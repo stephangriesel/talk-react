@@ -6,7 +6,11 @@ const navbar = () => {
   return (
     <nav>
       <div className="insideWrapper">
-        <div className="desc">The<strong>FORUM</strong></div>
+        <div className="desc">
+          <Link to="/topics">
+            The<strong>FORUM</strong>
+          </Link>
+        </div>
         <div className="links">
           <ul>
             <li className="menuItem"><Link to="/topics" style={{ textDecoration: 'none' }}>Login</Link></li>
