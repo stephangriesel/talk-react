@@ -13,7 +13,7 @@ class AddTopic extends Component {
     event.preventDefault();
     const title = this.state.title;
     const description = this.state.description;
-    const owner = this.state.owner.username;
+    const owner = this.state.owner;
     axios.post("http://localhost:5000/api/topics",
       {
         title, description, owner

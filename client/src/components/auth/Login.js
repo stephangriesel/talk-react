@@ -27,6 +27,7 @@ handleSubmit = (event) => {
         .then((response) => {
             let data = response.data
             this.props.loggedIn({ loggedIn: true, user: data })
+            debugger
             this.props.history.push("/topics") // not redirecting to topics
         })
         .catch((err) => {

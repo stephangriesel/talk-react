@@ -7,7 +7,8 @@ const topicSchema = new Schema({
   title: String,
   description: String,
   comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
-  owner: {type: Schema.Types.ObjectId, ref: 'User'}
+  // owner: {type: Schema.Types.ObjectId, ref: 'User'}
+  // owner: {type: Schema.Types.Username, ref: 'User'}
 });
 
 const Topic = mongoose.model('Topic', topicSchema);

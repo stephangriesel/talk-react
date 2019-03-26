@@ -6,15 +6,17 @@ class Logout extends Component {
 
     constructor(props){
         super(props)
+        debugger
     }
     logMeOut = ()=> {
         debugger
         axios({
-            method: "GET",
+            method: "POST",
             url: "http://localhost:5000/api/logout",
             withCredentials: true,
         })
         .then((response)=> {
+            debugger // set state logged in false here // this.props.loggedIn({ loggedIn: false, user: data })
             this.props.logout()
         })
         .catch((error)=> {
