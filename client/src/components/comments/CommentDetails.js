@@ -29,6 +29,7 @@ class CommentDetails extends Component {
       <div>
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
+        <p>{this.state.username}</p>
         <Link to={'/topics'}>Back to topics</Link>
       </div>
     )

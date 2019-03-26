@@ -72,6 +72,9 @@ class TopicDetails extends Component {
       <div>
         <h1 className="uppercaseText">{this.state.title}</h1>
         <p>{this.state.description}</p>
+        <p> 
+        <i className="fas fa-user"></i> {this.state.owner}
+        </p> 
 
 
         {/* show the comment heading only if there are comments */}

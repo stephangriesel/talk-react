@@ -16,7 +16,7 @@ class AddComment extends Component {
     axios.post("http://localhost:5000/api/comments", { title, description, topicID })
       .then(() => {
         this.props.getTheTopic();
-        this.setState({ title: "", description: "" });
+        this.setState({ title: "", description: "", owner: "" });
       })
       .catch(error => console.log(error))
   }

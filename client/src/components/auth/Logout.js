@@ -8,10 +8,10 @@ class Logout extends Component {
         super(props)
     }
     logMeOut = ()=> {
-        // debugger
+        debugger
         axios({
             method: "GET",
-            url: "http://localhost:5000/logout",
+            url: "http://localhost:5000/api/logout",
             withCredentials: true,
         })
         .then((response)=> {

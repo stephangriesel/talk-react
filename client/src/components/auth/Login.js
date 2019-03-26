@@ -27,7 +27,7 @@ handleSubmit = (event) => {
         .then((response) => {
             let data = response.data
             this.props.loggedIn({ loggedIn: true, user: data })
-            this.props.history.push("/topics")
+            this.props.history.push("/topics") // not redirecting to topics
         })
         .catch((err) => {
             this.props.history.push({ pathname: "/login", state: { message: "unauthorized" } })
