@@ -9,26 +9,26 @@ class SignUp extends Component {
     }
 
     handleChange = (event) => {
-        const {name, value} = event.target
-        this.setState({[name]: value})
+        const { name, value } = event.target
+        this.setState({ [name]: value })
     }
 
-    handleSubmit = (event)=> {
+    handleSubmit = (event) => {
         event.preventDefault()
         let newUser = this.state
         axios({
-               method: "post",
-               url: "http://localhost:5000/api/signup", 
-               data: newUser,
-               withCredentials: true,
-            })
-            .then((response)=> {
+            method: "post",
+            url: "http://localhost:5000/api/signup",
+            data: newUser,
+            withCredentials: true,
+        })
+            .then((response) => {
                 debugger
                 console.log("Success")
-                this.props.loggedIn({loggedIn: true, user: response.data})
+                this.props.loggedIn({ loggedIn: true, user: response.data })
                 this.props.history.push("/topics") // signup working but not being redirected
             })
-            .catch((err)=> {
+            .catch((err) => {
                 console.log("Error error")
             })
     }
@@ -36,7 +36,7 @@ class SignUp extends Component {
     render() {
         return (
             <div className="signupForm">
-                <form onSubmit={this.handleSubmit}> 
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         {/* <label>Username:</label> */}
                         <input type="text" onChange={this.handleChange} name="username" placeholder="USERNAME" value={this.state.username} />
