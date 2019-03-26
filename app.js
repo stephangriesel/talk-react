@@ -80,8 +80,7 @@ const authRoutes = require('./routes/auth-routes');
 app.use('/api', authRoutes);
 
 app.use('/', index);
-app.use('/users', require('./routes/users'));
-
+// app.use('/users', require('./routes/users'));
 app.use('/api', require('./routes/topic-routes'));
 app.use('/api', require('./routes/comment-routes'));
 

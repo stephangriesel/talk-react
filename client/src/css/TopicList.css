@@ -16,7 +16,8 @@ Brownish: #7b7b7b
     margin:10px;
     padding:15px;
     background-color: rgba(128, 180, 240, 1);
-    width:20em;
+    width:10em;
+    height:100%;
     float: left;
 }
 
@@ -27,4 +28,10 @@ Brownish: #7b7b7b
 
 .topicBox h3 {
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 500px) {
+    .topicBox {
+        width:20em;
+    }
 }

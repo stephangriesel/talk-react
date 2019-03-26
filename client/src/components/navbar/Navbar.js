@@ -15,6 +15,7 @@ const navbar = () => {
           <ul>
             <li className="menuItem"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></li>
             <li className="menuItem"><Link to="/signup" style={{ textDecoration: 'none' }}>Register</Link></li>
+            <li className="menuItem"><Link to="/logout" style={{ textDecoration: 'none' }}>Logout</Link></li>
           </ul>
         </div>
       </div>
