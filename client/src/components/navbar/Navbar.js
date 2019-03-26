@@ -13,8 +13,8 @@ const navbar = () => {
         </div>
         <div className="links">
           <ul>
-            <li className="menuItem"><Link to="/topics" style={{ textDecoration: 'none' }}>Login</Link></li>
-            <li className="menuItem"><Link to="/topics" style={{ textDecoration: 'none' }}>Register</Link></li>
+            <li className="menuItem"><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></li>
+            <li className="menuItem"><Link to="/signup" style={{ textDecoration: 'none' }}>Register</Link></li>
           </ul>
         </div>
       </div>

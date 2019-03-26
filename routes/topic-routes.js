@@ -9,8 +9,8 @@ router.post('/topics', (req, res, next)=>{
   Topic.create({ //creates new topic collection in db
     title: req.body.title,
     description: req.body.description,
-    comments: []
-    // owner: req.user._id // assign user to post // << COMMENTED OUT FOR TA question, refer to addtopic.js
+    comments: [],
+    // owner: req.user._id // assign user to post // << This breaks my app. COMMENTED OUT FOR TA question, refer to addtopic.js
   })
     .then(response => {
       res.json(response);
