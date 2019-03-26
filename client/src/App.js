@@ -12,6 +12,7 @@ import Logout from './components/auth/Logout';
 import AuthService from './components/auth/auth-service';
 
 import ProtectedRoute from './components/auth/protected-routes';
+import Welcome from './components/welcome/Welcome';
 
 class App extends Component {
 
@@ -63,7 +64,7 @@ class App extends Component {
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <Switch>
-            {/* <Route exact path="/" component={TopicList} /> */}
+            <Route exact path="/" component={Welcome} />
             {/* <Route exact path="/topics" component={TopicList} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
