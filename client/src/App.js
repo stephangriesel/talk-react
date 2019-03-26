@@ -52,6 +52,8 @@ class App extends Component {
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           {/* <Navbar userInSession={this.state.loggedInUser} /> */}
           <Switch>
+            <Route exact path="/" component={TopicList} />
+            <Route exact path="/topics" component={TopicList} />
             <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
             <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} />
             <ProtectedRoute user={this.state.loggedInUser} path="/logout" component={Logout} />
@@ -64,7 +66,8 @@ class App extends Component {
         <div className="App">
           <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <Switch>
-            <Route exact path="/" component={Welcome} />
+            <Route exact path="/" component={TopicList} />
+            <Route exact path="/topics" component={TopicList} />
             {/* <Route exact path="/topics" component={TopicList} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../../css/AddTopic.css';
+import AuthService from '../auth/auth-service';
 
 
 class AddTopic extends Component {
   constructor(props) {
     super(props);
+    this.state = { loggedInUser: null };
+    this.service = new AuthService();
     this.state = { title: "", description: "", owner: "" }; // << QUESTION FOR TA: this might be the reason why it is not working, I am not passing user, but if I do I can't get it to work?
   }
 
@@ -35,7 +38,7 @@ class AddTopic extends Component {
     this.setState({ [name]: value });
   }
 
-  toggleForm = () => { 
+  toggleForm = () => {
     if (!this.state.isShowing) {
       this.setState({ isShowing: true });
     } else {
@@ -63,14 +66,40 @@ class AddTopic extends Component {
     }
   }
 
-  render() { // QUESTION TO TA: if logged in show this button
-    return (
-      <div className="addTopic-wrapper">
+  // SHOW BUTTON IF LOGGED IN
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+  }
+
+  logoutUser = () => {
+    this.service.logout()
+      .then(() => {
+        this.setState({ loggedInUser: null });
+        this.props.getUser(null);
+      })
+  }
+
+  // SHOW BUTTON IF LOGGED IN END
+
+  render() {
+    if (this.state.loggedInUser) {
+      return (
+        <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>
-          <i className="far fa-comments"></i> Join the discussion</button>
+            <i className="far fa-comments"></i> Join the discussion</button>
           {this.showAddTopicForm()}
-      </div>
-    )
+        </div>
+      )
+    } else {
+      return (
+        <div className="addTopic-wrapper">
+          <button onClick={() => this.toggleForm()}>
+            <i className="far fa-comments"></i> REGISTER TO JOIN THE DISCUSSION</button>
+          {/* {this.showAddTopicForm()} */}
+        </div>
+      )
+    }
   }
 }
 
