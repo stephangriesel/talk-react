@@ -11,6 +11,8 @@ import Logout from './components/auth/Logout';
 
 import AuthService from './components/auth/auth-service';
 
+import ProtectedRoute from './components/auth/protected-routes';
+
 class App extends Component {
 
   constructor(props) {
@@ -46,23 +48,27 @@ class App extends Component {
     if (this.state.loggedInUser) {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} />
+          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          {/* <Navbar userInSession={this.state.loggedInUser} /> */}
           <Switch>
-            <Route exact path="/logout" component={Logout} />
+            <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
+            <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} />
+            <ProtectedRoute user={this.state.loggedInUser} path="/logout" component={Logout} />
+            <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" component={CommentDetails} />
           </Switch>
         </div>
       );
     } else {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} />
+          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
           <Switch>
-            <Route exact path="/" component={TopicList} />
-            <Route exact path="/topics" component={TopicList} />
+            {/* <Route exact path="/" component={TopicList} /> */}
+            {/* <Route exact path="/topics" component={TopicList} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/topics/:id" component={TopicDetails} />
-            <Route exact path="/topics/:id/comments/:commentId" component={CommentDetails} />
+            {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
+            <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} /> */}
           </Switch>
         </div>
       )

@@ -11,6 +11,34 @@ class TopicDetails extends Component {
     super(props);
     this.state = {};
   }
+  
+  /// NEW //
+
+  ownershipCheck = (topic) => {
+    if(this.props.loggedInUser && topic.owner == this.props.loggedInUser._id){
+      return (
+        <div>
+          <div>{this.renderEditForm()} </div>
+          <button onClick={() => this.deleteTopic(this.state._id)}>Delete topic</button>
+        </div>
+      )
+    } 
+  }
+  
+  render(){
+    return(
+      <div>
+        <h1>{this.state.title}</h1>
+        <p>{this.state.description}</p>
+        <div >
+          {this.ownershipCheck(this.state)}
+        </div>
+        <Link to={'/topics'}>Back to topics</Link>
+      </div>
+    )
+  }
+
+  // NEW END //
 
   componentDidMount() { // componentDidMount() is executing getSingleTopic() method which initially communicates with our backend route through axios call. If everything is successful, we are updating the state (using nothing but setState()) and equaling it to the topic object we got from our API.
     this.getSingleTopic();
