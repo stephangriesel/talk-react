@@ -10,6 +10,18 @@ import Login from './components/auth/Login';
 import Logout from './components/auth/Logout'
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = { loggedInUser: null };
+  }
+
+  getTheUser= (userObj) => {
+    this.setState({
+      loggedInUser: userObj
+    })
+  }
+
   render() {
     return (
       <div className="App">

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import AuthService from './auth-service';
 
 class SignUp extends Component {
-
-    state = {
+    constructor(props){
+        super(props);
+    this.state = {
         username: "",
         password: ""
-    }
-
-    handleChange = (event) => {
-        const { name, value } = event.target
-        this.setState({ [name]: value })
-    }
+    };
+    this.service = new AuthService();
+}
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -23,14 +22,24 @@ class SignUp extends Component {
             withCredentials: true,
         })
             .then((response) => {
+                this.setState({
+                    username: "", 
+                    password: "",
+                });
+                this.props.getUser(response)
                 debugger
-                console.log("Success")
+                // console.log("Success")
                 this.props.loggedIn({ loggedIn: true, user: response.data })
                 this.props.history.push("/topics") // signup working but not being redirected
             })
             .catch((err) => {
-                console.log("Error error")
+                // console.log("Error error")
             })
+    }
+
+    handleChange = (event) => {
+        const { name, value } = event.target
+        this.setState({ [name]: value })
     }
 
     render() {
