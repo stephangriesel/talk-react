@@ -14,29 +14,29 @@ class TopicDetails extends Component {
   
   /// NEW //
 
-  ownershipCheck = (topic) => {
-    if(this.props.loggedInUser && topic.owner == this.props.loggedInUser._id){
-      return (
-        <div>
-          <div>{this.renderEditForm()} </div>
-          <button onClick={() => this.deleteTopic(this.state._id)}>Delete topic</button>
-        </div>
-      )
-    } 
-  }
+  // ownershipCheck = (topic) => {
+  //   if(this.props.loggedInUser && topic.owner === this.props.loggedInUser._id){
+  //     return (
+  //       <div>
+  //         <div>{this.renderEditForm()} </div>
+  //         <button onClick={() => this.deleteTopic(this.state._id)}>Delete topic</button>
+  //       </div>
+  //     )
+  //   } 
+  // }
   
-  render(){
-    return(
-      <div>
-        <h1>{this.state.title}</h1>
-        <p>{this.state.description}</p>
-        <div >
-          {this.ownershipCheck(this.state)}
-        </div>
-        <Link to={'/topics'}>Back to topics</Link>
-      </div>
-    )
-  }
+  // render(){
+  //   return(
+  //     <div>
+  //       <h1>{this.state.title}</h1>
+  //       <p>{this.state.description}</p>
+  //       <div >
+  //         {this.ownershipCheck(this.state)}
+  //       </div>
+  //       <Link to={'/topics'}>Back to topics</Link>
+  //     </div>
+  //   )
+  // }
 
   // NEW END //
 

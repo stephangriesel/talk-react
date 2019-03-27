@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../css/Auth.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import AuthService from './auth-service';
 
 class Login extends Component {
@@ -32,7 +31,7 @@ class Login extends Component {
                 let data = response.data
                 this.props.loggedIn({ loggedIn: true, user: data })
                 debugger
-                this.props.history.push("/topics") // not redirecting to topics
+                this.props.history.push("/") // not redirecting to topics
             })
             .catch((err) => {
                 this.props.history.push({ pathname: "/login", state: { message: "unauthorized" } })

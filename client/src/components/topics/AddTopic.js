@@ -9,7 +9,19 @@ class AddTopic extends Component {
     super(props);
     this.state = { loggedInUser: null };
     this.service = new AuthService();
-    this.state = { title: "", description: "", owner: "" }; // << QUESTION FOR TA: this might be the reason why it is not working, I am not passing user, but if I do I can't get it to work?
+    this.state = { title: "", description: "", owner: "" };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+  }
+
+  logoutUser = () => {
+    this.service.logout()
+      .then(() => {
+        this.setState({ loggedInUser: null });
+        this.props.getUser(null);
+      })
   }
 
   handleFormSubmit = (event) => {
@@ -51,11 +63,9 @@ class AddTopic extends Component {
       return (
         <div className="addTopic-wrapper">
           <form onSubmit={this.handleFormSubmit}>
-            {/* <label>Title:</label> */}
             <div className="topicTitle">
               <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
             </div>
-            {/* <label>Description:</label> */}
             <div className="topicDesc">
               <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
             </div>
@@ -68,22 +78,8 @@ class AddTopic extends Component {
 
   // SHOW BUTTON IF LOGGED IN
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
-  }
-
-  logoutUser = () => {
-    this.service.logout()
-      .then(() => {
-        this.setState({ loggedInUser: null });
-        this.props.getUser(null);
-      })
-  }
-
-  // SHOW BUTTON IF LOGGED IN END
-
   render() {
-    if (this.state.loggedInUser) {
+    if (this.state.loggedInUser === true) {
       return (
         <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>
@@ -95,8 +91,8 @@ class AddTopic extends Component {
       return (
         <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>
-            <i className="far fa-comments"></i> REGISTER TO JOIN THE DISCUSSION</button>
-          {/* {this.showAddTopicForm()} */}
+            <i className="far fa-comments"></i> Login to join discussion</button>
+          {this.showAddTopicForm()}
         </div>
       )
     }
