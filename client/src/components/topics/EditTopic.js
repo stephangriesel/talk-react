@@ -58,7 +58,7 @@ class EditTopic extends Component {
   showEditTopicForm = () => {
     if (this.state.isShowing) {
       return (
-        <div className="editTopic-wrapper">
+        <div className="editTopic-wrapper animated bounceInUp">
           <form onSubmit={this.handleFormSubmit}>
             {/* <label>Title:</label> */}
             <div className="topicTitle">

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../../css/AddTopic.css';
+import '../../css/Animate.css';
 import AuthService from '../auth/auth-service';
+
+// Character count
 
 
 class AddTopic extends Component {
@@ -61,13 +64,17 @@ class AddTopic extends Component {
   showAddTopicForm = () => {
     if (this.state.isShowing) {
       return (
-        <div className="addTopic-wrapper">
+        <div className="addTopic-wrapper animated bounceInUp">
           <form onSubmit={this.handleFormSubmit}>
             <div className="topicTitle">
-              <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
+              <input maxLength="50" type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
             </div>
             <div className="topicDesc">
-              <textarea maxlength="100" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+              <textarea maxLength="200" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+            </div>
+            <div id="the-count">
+              <span id="current">0</span>
+              <span id="maximum">/ 200</span>
             </div>
             <button type="submit" value="Submit">SUBMIT</button>
           </form>
@@ -75,6 +82,8 @@ class AddTopic extends Component {
       )
     }
   }
+
+
 
   // SHOW BUTTON IF LOGGED IN
 

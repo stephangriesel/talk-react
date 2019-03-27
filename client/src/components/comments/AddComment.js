@@ -37,15 +37,11 @@ class AddComment extends Component {
   showAddCommentForm = () => {
     if (this.state.isShowing) {
       return (
-        <div className="addCommentBox">
-          {/* <h3>Add Comment</h3> */}
+        <div className="addCommentBox animated bounceInUp">
           <form onSubmit={this.handleFormSubmit}>
-            {/* <label>Title:</label> */}
             <div className="commentText">
               <textarea type="text" name="title" value={this.state.title} onChange={e => this.handleChange(e)} />
             </div>
-            {/* <label>Description:</label>
-                  <textarea name="description" value={this.state.description} onChange={ e => this.handleChange(e)} /> */}
             <button type="submit" value="Submit"><i className="fas fa-comment"></i> ADD</button>
           </form>
         </div>
