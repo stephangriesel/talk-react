@@ -1,6 +1,7 @@
 .addTopic-wrapper {
     display:flex;
     flex-direction: column;
+    overflow-wrap: break-word;
 }
 
 .topicTitle {
@@ -13,10 +14,12 @@
     font-size:20px;
     outline: none;
     border:none;
+    overflow-wrap: break-word;
 }
 
 .topicDesc {
     margin:15px;
+    overflow-wrap: break-word;
 }
 
 .topicDesc textarea {
@@ -26,5 +29,6 @@
     font-size:20px;
     outline:none;
     border:none;
+    overflow-wrap: break-word;
 }
 

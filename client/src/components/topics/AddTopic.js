@@ -67,7 +67,7 @@ class AddTopic extends Component {
               <input type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
             </div>
             <div className="topicDesc">
-              <textarea name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+              <textarea maxlength="100" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
             </div>
             <button type="submit" value="Submit">SUBMIT</button>
           </form>

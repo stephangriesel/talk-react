@@ -24,6 +24,7 @@ Brownish: #7b7b7b
 .topicBox h3, p {
     padding:0;
     margin:15px 0;
+    overflow-wrap: break-word;
 }
 
 .topicBox h3 {
