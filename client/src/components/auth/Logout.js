@@ -8,6 +8,13 @@ class Logout extends Component {
         super(props)
         debugger
     }
+
+    logout = () => {
+        debugger
+        this.setState({ user: {}, loggedIn: false })
+        localStorage.setItem("state", "{}")
+      }
+      
     logMeOut = () => {
         debugger
         axios({

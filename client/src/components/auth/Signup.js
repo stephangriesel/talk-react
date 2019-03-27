@@ -47,11 +47,9 @@ class SignUp extends Component {
             <div className="signupForm">
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        {/* <label>Username:</label> */}
                         <input type="text" onChange={this.handleChange} name="username" placeholder="USERNAME" value={this.state.username} />
                     </div>
                     <div>
-                        {/* <label>Password:</label> */}
                         <input type="password" name="password" onChange={this.handleChange} placeholder="PASSWORD" value={this.state.password} />
                     </div>
                     <div>

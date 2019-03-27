@@ -4,15 +4,16 @@ import '../../css/AddTopic.css';
 import '../../css/Animate.css';
 import AuthService from '../auth/auth-service';
 
-// Character count
-
-
 class AddTopic extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedInUser: null };
+    this.state = {
+      loggedInUser: null,
+      title: "",
+      description: "",
+      owner: "",
+    };
     this.service = new AuthService();
-    this.state = { title: "", description: "", owner: "" };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -70,11 +71,10 @@ class AddTopic extends Component {
               <input maxLength="50" type="text" name="title" placeholder="... start a discussion" value={this.state.title} onChange={e => this.handleChange(e)} />
             </div>
             <div className="topicDesc">
-              <textarea maxLength="200" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
+                  <textarea maxLength={200} name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
             </div>
-            <div id="the-count">
-              <span id="current">0</span>
-              <span id="maximum">/ 200</span>
+            <div>
+              <span className="textarea__count">0</span>
             </div>
             <button type="submit" value="Submit">SUBMIT</button>
           </form>
@@ -97,13 +97,7 @@ class AddTopic extends Component {
         </div>
       )
     } else {
-      return (
-        <div className="addTopic-wrapper">
-          <button onClick={() => this.toggleForm()}>
-            <i className="far fa-comments"></i> Login to join discussion</button>
-          {this.showAddTopicForm()}
-        </div>
-      )
+      return (this.state.loggedInUser === null)
     }
   }
 }

@@ -43,6 +43,10 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    this.setState(JSON.parse(localStorage.getItem("state")))
+  }
+
   render() {
     this.fetchUser()
     if (this.state.loggedInUser) {
@@ -52,6 +56,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TopicList} />
             <Route exact path="/topics" component={TopicList} />
+            {/* <Route exact path="/signup" component={Signup} /> */}
             <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
             <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} />
             <ProtectedRoute user={this.state.loggedInUser} path="/logout" component={Logout} />
@@ -66,11 +71,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TopicList} />
             <Route exact path="/topics" component={TopicList} />
-            {/* <Route exact path="/topics" component={TopicList} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
-            {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
-            <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} /> */}
           </Switch>
         </div>
       )

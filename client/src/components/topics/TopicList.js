@@ -64,14 +64,14 @@ class TopicList extends Component {
             return (
               <div key={topic._id} className="topicBox">
                 <Link to={`/topics/${topic._id}`}> {/* don’t forget to give each element the database ID as the key with key={topic._id}) */}
-                  <h3><i className="fas fa-newspaper"></i> {topic.title} {this.loggedInUser}</h3>
+                  <h3><i className="fas fa-newspaper"></i> {topic.title} {}</h3>
                 </Link>
-                {/* <ul> // << breaks app, troubleshoot
-                  { topic.comments.map((comment, index) => {
-                    return <li key={index}>{comment.title}</li>
-                  }) }
-                </ul>  */}
                 <p><i className="far fa-comments"></i> {topic.description} </p>
+                <ul> 
+                  { topic.comments.map((comment, index) => {
+                    return <li className="commentText" key={index}><i className="far fa-comment-dots"></i> {comment.title}</li>
+                  }) }
+                </ul> 
               </div>
             )
           })
