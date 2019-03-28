@@ -29,7 +29,7 @@ class EditTopic extends Component {
     )
       .then(() => {
         this.props.getTheTopic();
-        this.props.history.push('/topics'); // after submitting the form, redirect to '/topics'
+        this.props.history.push('/'); 
 
       })
       .catch(error => console.log(error))
@@ -60,11 +60,9 @@ class EditTopic extends Component {
       return (
         <div className="editTopic-wrapper animated bounceInUp">
           <form onSubmit={this.handleFormSubmit}>
-            {/* <label>Title:</label> */}
             <div className="topicTitle">
               <input type="text" name="title" value={this.state.title} onChange={e => this.handleChangeTitle(e)} />
             </div>
-            {/* <label>Description:</label> */}
             <div className="topicDesc">
               <textarea name="description" value={this.state.description} onChange={e => this.handleChangeDesc(e)} />
             </div>

@@ -54,11 +54,11 @@ class App extends Component {
     }
   }
 
-  getTheUser = (userObj) => {
-    this.setState({
-      loggedInUser: userObj
-    })
-  }
+  // getTheUser = (userObj) => {
+  //   this.setState({
+  //     loggedInUser: userObj
+  //   })
+  // }
 
   componentDidMount() {
     this.setState(JSON.parse(localStorage.getItem("state")))
