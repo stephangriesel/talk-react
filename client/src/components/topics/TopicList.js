@@ -7,11 +7,12 @@ import AuthService from '../../components/auth/auth-service';
 
 
 class TopicList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { 
       listOfTopics: [],
-      loggedInUser: null 
+      loggedInUser: null,
+      userinsessionname: this.props.user 
     };
     this.service = new AuthService();
   }

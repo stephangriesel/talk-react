@@ -9,11 +9,13 @@
 }
 
 .topicTitle input {
+    color:#FFFFFF;
+    background:none;
     padding:15px;
     text-align: center;
     font-size:20px;
     outline: none;
-    border:none;
+    border:1px solid #FFFFFF;
     overflow-wrap: break-word;
 }
 
@@ -23,12 +25,18 @@
 }
 
 .topicDesc textarea {
+    color:#FFFFFF;
+    background:none;
     padding:15px;
     width:3em;
     height:10em;
     font-size:20px;
     outline:none;
-    border:none;
+    border:1px solid #FFFFFF;
     overflow-wrap: break-word;
+}
+
+::placeholder {
+    color:rgb(206, 206, 206);
 }
 

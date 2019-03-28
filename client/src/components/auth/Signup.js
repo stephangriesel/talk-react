@@ -30,7 +30,7 @@ class SignUp extends Component {
                 debugger
                 // console.log("Success")
                 this.props.loggedIn({ loggedIn: true, user: response.data })
-                this.props.history.push("/topics") // signup working but not being redirected
+                this.props.history.push("/login") // signup working but not being redirected
             })
             .catch((err) => {
                 // console.log("Error error")
@@ -56,6 +56,7 @@ class SignUp extends Component {
                         <button type="submit" value="Submit">SIGN UP</button>
                     </div>
                 </form>
+                <p>{this.props.location && this.props.location.state? this.props.location.state.message:""}</p> {/* STATUS MESSAGE */}
             </div>
         )
     }

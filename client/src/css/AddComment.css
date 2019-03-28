@@ -1,15 +1,19 @@
 .commentText {
-    background-color:rgba(67, 132, 244,0.6);
+    /* background-color:rgba(67, 132, 244,0.6); */
     padding:5px;
     margin:15px;
     border-radius:5px;
 }
 
 .commentText textarea {
+    color:#FFFFFF;
+    background:none;
     padding:15px;
     width:70%;
     height:5em;
     font-size:20px;
     outline:none;
-    border:none;
+    border:1px #FFFFFF solid;
+    margin:10px;
+
 }

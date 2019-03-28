@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/Logout.css';
 import axios from "axios";
-import AuthService from './auth-service';
+// import AuthService from './auth-service';
 
 
 class Logout extends Component {
@@ -11,12 +11,12 @@ class Logout extends Component {
         debugger
     }
 
-    logout = () => {
-        debugger
-        this.setState({ username: {}, loggedIn: false })
-        localStorage.setItem("state", "{}")
-      }
-      
+    // logout = () => {
+    //     debugger
+    //     this.setState({ username: {}, loggedIn: false })
+    //     localStorage.setItem("state", "{}")
+    // }
+
     logMeOut = () => {
         debugger
         axios({
@@ -37,8 +37,7 @@ class Logout extends Component {
     render() {
         return (
             <div className="statusMsg">
-                <h1>Procced to logout? <i className="fas fa-hand-peace"></i></h1>
-                <button onClick={this.logMeOut}>Logout</button>
+                <button className="button is-primary" onClick={this.logMeOut}>Logout</button>
             </div>
         )
     }

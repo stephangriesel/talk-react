@@ -87,12 +87,11 @@ class App extends Component {
 
             {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> */}
             <Route user={this.state.loggedInUser} path="/logout" component={Logout} />
-            <ProtectedRoute  userInSession={this.state.loggedInUser} getUser={this.getTheUser}  path="/topics" component={TopicList} />
-
             <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" component={CommentDetails} />
           </Switch>
-         
-    
+          <Switch>
+          <ProtectedRoute  userInSession={this.state.loggedInUser} getUser={this.getTheUser}  path="/topics" component={TopicList} />
+          </Switch>
 
         </div>
 

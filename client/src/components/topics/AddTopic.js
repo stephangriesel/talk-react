@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../../css/AddTopic.css';
 import '../../css/Animate.css';
-import AuthService from '../auth/auth-service';
 
 class AddTopic extends Component {
   constructor(props) {
@@ -13,14 +12,15 @@ class AddTopic extends Component {
       description: "",
       owner: "",
     };
-    this.service = new AuthService();
-    debugger
+    // this.service = new AuthService();
+    // debugger
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
+    // debugger
+    console.log("this is addtopic", this);
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
-    debugger
+    // debugger
   }
 
   logoutUser = () => {
@@ -47,7 +47,7 @@ class AddTopic extends Component {
       .then(() => {
         this.props.getData();
         this.setState({ title: "", description: "", owner: "" });
-        debugger
+        // debugger
       })
       .catch(error => console.log(error))
   }
@@ -86,14 +86,12 @@ class AddTopic extends Component {
     }
   }
 
-
-
   // SHOW BUTTON IF LOGGED IN
 
   render() {
-    debugger
-    if (this.state.loggedIn === true) {
-      debugger
+    // debugger
+    if (this.state.loggedIn) {
+      // debugger
       return (
         <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>

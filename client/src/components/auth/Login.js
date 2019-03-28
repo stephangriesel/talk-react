@@ -31,12 +31,12 @@ class Login extends Component {
         .then((response)=> {
             let data = response.data
             this.props.loggedIn({loggedIn: true, user: data})
-            this.props.history.push("/")
+            this.props.history.push("/topics")
             debugger
         })
 
             .catch((err) => {
-                this.props.history.push({ pathname: "/login", state: { message: "unauthorized" } })
+                this.props.history.push({ pathname: "/login", state: { message: "Incorrect, please try again" } })
             })
     }
 
