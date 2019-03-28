@@ -20,6 +20,7 @@ class AddTopic extends Component {
   componentWillReceiveProps(nextProps) {
     debugger
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+    debugger
   }
 
   logoutUser = () => {

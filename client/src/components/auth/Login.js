@@ -24,7 +24,7 @@ class Login extends Component {
         let newUser = this.state
         axios({
             method: "post",
-            url: "http://localhost:5000/api/login", // can see it is working but is not redirecting
+            url: "http://localhost:5000/api/login", 
             data: newUser,
             withCredentials: true,
         })

@@ -3,9 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AddTopic from './AddTopic';
 import '../../css/TopicList.css';
-
 import AuthService from '../../components/auth/auth-service';
-
 
 
 class TopicList extends Component {
