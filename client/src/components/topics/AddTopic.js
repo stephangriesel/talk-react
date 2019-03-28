@@ -76,9 +76,6 @@ class AddTopic extends Component {
             <div className="topicDesc">
                   <textarea maxLength={200} name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
             </div>
-            <div>
-              <span className="textarea__count">0</span>
-            </div>
             <button type="submit" value="Submit">SUBMIT</button>
           </form>
         </div>
