@@ -14,7 +14,7 @@ export default (props) => (
 )
 
 const NavUnauthenticated = (props) => (
-  <nav>
+
     <div className="insideWrapper">
       <div className="desc">
         <Link to="/">
@@ -28,11 +28,9 @@ const NavUnauthenticated = (props) => (
         </ul>
       </div>
     </div>
-  </nav>
 )
 
 const NavAuthenticated = (props) => (
-  <nav>
     <div className="insideWrapper">
       <div className="desc">
         <Link to="/">
@@ -45,5 +43,4 @@ const NavAuthenticated = (props) => (
         </ul>
       </div>
     </div>
-  </nav>
 )
