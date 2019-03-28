@@ -78,7 +78,7 @@ class App extends Component {
 
         <Switch>
 
-          <Route path="/" exact component={TopicList} />
+          <Route exact path="/" render={(props)=> <TopicList test="test" {...props} user={this.state.user} userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>} />
           <Route path="/login" render={(props) => <Login {...props} loggedIn={this.loggedIn} />} />
           <Route path="/signup" render={(props) => <Signup {...props} loggedIn={this.loggedIn} />} />
           {/* <PrivateRoute path="/secret" component={SuperSecret} loggedIn={this.state.loggedIn} /> << JURGEN EXAMPLE */}
@@ -86,10 +86,11 @@ class App extends Component {
 
 
           {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> */}
-          <Route user={this.state.loggedInUser} path="/logout" component={Logout} />
-          <ProtectedRoute userInSession={this.state.loggedInUser} getUser={this.getTheUser} path="/topics" component={TopicList} />
+          <Route path="/logout" render={(props)=> <Logout {...props} user={this.state.loggedInUser}  />} />
 
-          <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" component={CommentDetails} />
+          <ProtectedRoute  user={this.state.user} userInSession={this.state.loggedInUser} getUser={this.getTheUser} path="/topics" component={TopicList} />
+
+          <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" test="test" component={CommentDetails} />
         </Switch>
       </div>
     )

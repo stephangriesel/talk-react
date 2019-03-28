@@ -56,9 +56,11 @@ class TopicList extends Component {
   debugger
 
   render() {
+    debugger
     return (
       <div className="topicList-wrapper">
         <div>
+
           <AddTopic  userInSession={this.state.loggedInUser} getData={() => this.getAllTopics()} />
         </div>
 
@@ -67,7 +69,7 @@ class TopicList extends Component {
             return (
               <div key={topic._id} className="topicBox">
                 <Link to={`/topics/${topic._id}`}> {/* don’t forget to give each element the database ID as the key with key={topic._id}) */}
-                  <h3><i className="fas fa-newspaper"></i> {topic.title} {}</h3>
+                  <h3><i className="fas fa-newspaper"></i> {topic.title} by {this.props.user.username}</h3>
                 </Link>
                 <p><i className="far fa-comments"></i> {topic.description} </p>
                 <ul> 

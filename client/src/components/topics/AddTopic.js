@@ -84,6 +84,7 @@ class AddTopic extends Component {
   }
 
   // SHOW BUTTON IF LOGGED IN
+  // Not working but nice try, something to improve in version 2
 
   render() {
     // debugger
@@ -100,7 +101,7 @@ class AddTopic extends Component {
       return (
         <div className="addTopic-wrapper">
         <button onClick={() => this.toggleForm()}>
-          <i className="far fa-comments"></i> Log in to join the discussion</button>
+          <i className="far fa-comments"></i> Join the discussion</button>
         {this.showAddTopicForm()}
       </div>
       )
