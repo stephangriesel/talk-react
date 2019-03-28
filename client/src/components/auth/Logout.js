@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../css/Logout.css';
 import axios from "axios";
+import {Redirect} from "react-router-dom";
 // import AuthService from './auth-service';
 
 
@@ -8,14 +9,8 @@ class Logout extends Component {
 
     constructor(props) {
         super(props)
-        debugger
+        // debugger
     }
-
-    // logout = () => {
-    //     debugger
-    //     this.setState({ username: {}, loggedIn: false })
-    //     localStorage.setItem("state", "{}")
-    // }
 
     logMeOut = () => {
         debugger
@@ -37,7 +32,7 @@ class Logout extends Component {
     render() {
         return (
             <div className="statusMsg">
-                <button className="button is-primary" onClick={this.logMeOut}>Logout</button>
+                <button className="button" onClick={this.logMeOut}>Logout</button>
             </div>
         )
     }
