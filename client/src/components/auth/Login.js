@@ -13,11 +13,14 @@ class Login extends Component {
         this.service = new AuthService();
     }
 
-    handleSubmit = (event) => {
+    handleChange = (event) => {
+        let updateInput = {}
+        updateInput[event.target.name] = event.target.value
+        this.setState(updateInput)
+    }
+
+    handleSubmit = (event)=> {
         event.preventDefault()
-        const username = this.state.username; // <<
-        const password = this.state.password; // <<
-        this.service.login(username,password) // <<
         let newUser = this.state
         axios({
             method: "post",
@@ -25,23 +28,16 @@ class Login extends Component {
             data: newUser,
             withCredentials: true,
         })
-            .then((response) => {
-                this.setState({ username: "", password: "" }); // <<
-                this.props.getUser(response) // <<
-                let data = response.data
-                this.props.loggedIn({ loggedIn: true, user: data })
-                debugger
-                this.props.history.push("/") // not redirecting to topics
-            })
+        .then((response)=> {
+            let data = response.data
+            this.props.loggedIn({loggedIn: true, user: data})
+            this.props.history.push("/")
+            debugger
+        })
+
             .catch((err) => {
                 this.props.history.push({ pathname: "/login", state: { message: "unauthorized" } })
             })
-    }
-
-    handleChange = (event) => {
-        let updateInput = {}
-        updateInput[event.target.name] = event.target.value
-        this.setState(updateInput)
     }
 
     render() {
@@ -49,17 +45,18 @@ class Login extends Component {
             <div className="loginForm">
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        {/* <label>Username:</label> */}
                         <input type="text" name="username" onChange={this.handleChange} placeholder="USERNAME" value={this.state.username} />
                     </div>
                     <div>
-                        {/* <label>Password:</label> */}
                         <input type="password" onChange={this.handleChange} name="password" placeholder="PASSWORD" value={this.state.password} />
                     </div>
                     <div>
                         <button type="submit" value="Submit">LOG IN</button>
                     </div>
                 </form>
+
+                <p>{this.props.location && this.props.location.state? this.props.location.state.message:""}</p> {/* STATUS MESSAGE */}
+
             </div>
         )
     }

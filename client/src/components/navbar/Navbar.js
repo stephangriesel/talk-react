@@ -11,6 +11,7 @@ class Navbar extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
   }
 
@@ -28,7 +29,7 @@ class Navbar extends Component {
         <nav>
           <div className="insideWrapper">
             <div className="desc">
-              <Link to="/topics">
+              <Link to="/">
                 The<strong>TALK</strong>
               </Link>
             </div>
@@ -45,7 +46,7 @@ class Navbar extends Component {
         <nav>
           <div className="insideWrapper">
             <div className="desc">
-              <Link to="/topics">
+              <Link to="/">
                 The<strong>TALK</strong>
               </Link>
             </div>

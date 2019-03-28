@@ -14,9 +14,11 @@ class AddTopic extends Component {
       owner: "",
     };
     this.service = new AuthService();
+    debugger
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
   }
 
@@ -88,7 +90,9 @@ class AddTopic extends Component {
   // SHOW BUTTON IF LOGGED IN
 
   render() {
-    if (this.state.loggedInUser === true) {
+    debugger
+    if (this.state.loggedIn === true) {
+      debugger
       return (
         <div className="addTopic-wrapper">
           <button onClick={() => this.toggleForm()}>
@@ -97,7 +101,13 @@ class AddTopic extends Component {
         </div>
       )
     } else {
-      return (this.state.loggedInUser === null)
+      return (
+        <div className="addTopic-wrapper">
+        <button onClick={() => this.toggleForm()}>
+          <i className="far fa-comments"></i> Log in to join the discussion</button>
+        {this.showAddTopicForm()}
+      </div>
+      )
     }
   }
 }

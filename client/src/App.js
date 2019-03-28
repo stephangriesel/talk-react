@@ -13,12 +13,29 @@ import AuthService from './components/auth/auth-service';
 
 import ProtectedRoute from './components/auth/protected-routes';
 
+
+
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { loggedInUser: null };
+    this.state = {
+      loggedInUser: null,
+      user: {}
+    };
     this.service = new AuthService();
+  }
+
+  loggedIn = (loginState) => { // review auth-service.js
+    const { loggedIn, user } = loginState
+    this.setState({ loggedIn: loggedIn, user: user })
+    localStorage.setItem("state", JSON.stringify(loginState))
+  }
+
+  logout = () => { // review auth-service.js
+    debugger
+    this.setState({ user: {}, loggedIn: false })
+    localStorage.setItem("state", "{}")
   }
 
   fetchUser() {
@@ -48,35 +65,62 @@ class App extends Component {
   }
 
   render() {
-    this.fetchUser()
-    if (this.state.loggedInUser) {
+    // this.fetchUser()
+    // if (this.state.loggedInUser) {
       return (
         <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+          <section>
+            <div className="container">
+              <Navbar {...this.state} logout={this.logout} />
+            </div>
+          </section>
+
           <Switch>
-            <Route exact path="/" component={TopicList} />
-            <Route exact path="/topics" component={TopicList} />
-            {/* <Route exact path="/signup" component={Signup} /> */}
-            <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} />
-            <ProtectedRoute user={this.state.loggedInUser} path="/topics" component={TopicList} />
+            
+            <Route path="/" exact component={TopicList} />
+            <Route path="/login" render={(props) => <Login {...props} loggedIn={this.loggedIn} />} />
+            <Route path="/signup" render={(props) => <Signup {...props} loggedIn={this.loggedIn} />} />
+            {/* <PrivateRoute path="/secret" component={SuperSecret} loggedIn={this.state.loggedIn} /> << JURGEN EXAMPLE */}
+            <Route user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> {/* UNCOMMENT TO SEE TOPIC DETAILS */}
+
+
+            {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> */}
             <ProtectedRoute user={this.state.loggedInUser} path="/logout" component={Logout} />
             <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" component={CommentDetails} />
           </Switch>
+
         </div>
-      );
-    } else {
-      return (
-        <div className="App">
-          <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
-          <Switch>
-            <Route exact path="/" component={TopicList} />
-            <Route exact path="/topics" component={TopicList} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/login" component={Login} />
-          </Switch>
-        </div>
+
+
+        // old code //
+        //     <div className="App">
+        //       <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+        //       <Switch>
+        //         <Route exact path="/" component={TopicList} />
+        //         <Route exact path="/topics" component={TopicList} />
+        //         {/* <Route exact path="/signup" component={Signup} /> */}
+        //         <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> //
+        //         <ProtectedRoute  userInSession={this.state.loggedInUser} getUser={this.getTheUser}  path="/topics" component={TopicList} /> //
+        //         <ProtectedRoute user={this.state.loggedInUser} path="/logout" component={Logout} /> //
+        //         <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" component={CommentDetails} /> //
+        //       </Switch>
+        //     </div>
+        //   );
+        // } else {
+        //   return (
+        //     <div className="App">
+        //       <Navbar userInSession={this.state.loggedInUser} getUser={this.getTheUser} />
+        //       <Switch>
+        //         <Route exact path="/" component={TopicList} />
+        //         <Route exact path="/topics" component={TopicList} />
+        //         <Route exact path="/signup" component={Signup} />
+        //         <Route exact path="/login" component={Login} />
+        //       </Switch>
+        //     </div>
+        // old code end //
+
       )
-    }
+    // }
   }
 }
 

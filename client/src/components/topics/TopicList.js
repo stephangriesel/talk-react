@@ -11,7 +11,10 @@ import AuthService from '../../components/auth/auth-service';
 class TopicList extends Component {
   constructor() {
     super();
-    this.state = { listOfTopics: [] };
+    this.state = { 
+      listOfTopics: [],
+      loggedInUser: null 
+    };
     this.service = new AuthService();
   }
 
@@ -51,12 +54,13 @@ class TopicList extends Component {
   componentDidMount() { // we use componentDidMount() lifecycle method to fetch the data from API
     this.getAllTopics();
   }
+  debugger
 
   render() {
     return (
       <div className="topicList-wrapper">
         <div>
-          <AddTopic getData={() => this.getAllTopics()} />
+          <AddTopic  userInSession={this.state.loggedInUser} getData={() => this.getAllTopics()} />
         </div>
 
         <div>

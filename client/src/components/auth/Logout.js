@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../../css/Logout.css';
 import axios from "axios";
+import AuthService from './auth-service';
+
 
 class Logout extends Component {
 
@@ -11,7 +13,7 @@ class Logout extends Component {
 
     logout = () => {
         debugger
-        this.setState({ user: {}, loggedIn: false })
+        this.setState({ username: {}, loggedIn: false })
         localStorage.setItem("state", "{}")
       }
       
@@ -25,6 +27,7 @@ class Logout extends Component {
             .then((response) => {
                 // this.props.loggedIn({ loggedIn: false, user: data })
                 this.props.logout()
+                debugger
             })
             .catch((error) => {
                 console.log(error)
