@@ -32,7 +32,7 @@ class Login extends Component {
             let data = response.data
             this.props.loggedIn({loggedIn: true, user: data})
             this.props.history.push("/topics")
-            debugger
+            // debugger
         })
 
             .catch((err) => {

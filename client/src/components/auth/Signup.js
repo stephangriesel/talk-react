@@ -27,7 +27,7 @@ class SignUp extends Component {
                     password: "",
                 });
                 this.props.getUser(response)
-                debugger
+                // debugger
                 // console.log("Success")
                 this.props.loggedIn({ loggedIn: true, user: response.data })
                 this.props.history.push("/login") // signup working but not being redirected

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import '../../css/Logout.css';
 import axios from "axios";
-import {Redirect} from "react-router-dom";
-// import AuthService from './auth-service';
 
 
 class Logout extends Component {
 
-    constructor(props) {
-        super(props)
-        // debugger
-    }
+    // constructor(props) {
+    //     super(props)
+    //     // debugger
+    // }
 
     logMeOut = () => {
-        debugger
+        // debugger
         axios({
             method: "POST",
             url: "http://localhost:5000/api/logout",
@@ -22,7 +20,7 @@ class Logout extends Component {
             .then((response) => {
                 // this.props.loggedIn({ loggedIn: false, user: data })
                 this.props.logout()
-                debugger
+                // debugger
             })
             .catch((error) => {
                 console.log(error)

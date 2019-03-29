@@ -18,8 +18,9 @@ class AddTopic extends Component {
 
   componentWillReceiveProps(nextProps) {
     // debugger
-    console.log("this is addtopic", this);
+    
     this.setState({ ...this.state, loggedInUser: nextProps["userInSession"] })
+    console.log("this is addtopic", this);
     // debugger
   }
 

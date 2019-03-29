@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   logout = () => { // review auth-service.js
-    debugger
+    // debugger
     this.setState({ user: {}, loggedIn: false })
     localStorage.setItem("state", "{}")
   }
@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   getTheUser = (userObj) => {
-    debugger
+    // debugger
     this.setState({
       loggedInUser: userObj
     })

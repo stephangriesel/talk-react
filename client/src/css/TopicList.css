@@ -11,6 +11,12 @@ Brownish: #7b7b7b
     margin:30px;
 }
 
+.itemCards {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .topicBox {
     border-radius: 10px;
     margin:10px;
@@ -18,7 +24,7 @@ Brownish: #7b7b7b
     background-color: rgba(128, 180, 240, 1);
     width:10em;
     height:100%;
-    float: left;
+    /* float: left; */
 }
 
 .topicBox h3, p {
