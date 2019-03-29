@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import TopicList from './components/topics/TopicList';
+import TopicListLoggedIn from './components/topics/TopicListLoggedIn';
 import Navbar from './components/navbar/Navbar';
 import TopicDetails from './components/topics/TopicDetails';
 import CommentDetails from './components/comments/CommentDetails';
@@ -88,8 +89,8 @@ class App extends Component {
           {/* <ProtectedRoute user={this.state.loggedInUser} path='/topics/:id' component={TopicDetails} /> */}
           <Route path="/logout" render={(props)=> <Logout {...props} user={this.state.loggedInUser}  />} />
 
-          <ProtectedRoute  user={this.state.user} userInSession={this.state.loggedInUser} getUser={this.getTheUser} path="/topics" component={TopicList} />
-
+          <ProtectedRoute  user={this.state.user} userInSession={this.state.loggedInUser} getUser={this.getTheUser} path="/topics" component={TopicListLoggedIn} />
+          {/* <ProtectedRoute user={this.state.user} userInSession={this.state.loggedInUser} getUser={this.getTheUser} path='/topics/:id' component={TopicDetails} /> // */}
           <ProtectedRoute user={this.state.loggedInUser} path="/topics/:id/comments/:commentId" test="test" component={CommentDetails} />
         </Switch>
       </div>
