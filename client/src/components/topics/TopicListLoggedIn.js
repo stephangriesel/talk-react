@@ -6,13 +6,14 @@ import '../../css/TopicList.css';
 import AuthService from '../auth/auth-service';
 
 
-class TopicList extends Component {
+class TopicListLoggedIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listOfTopics: [],
       loggedInUser: null,
-      userinsessionname: this.props.user
+      userinsessionname: this.props.user,
+      // displayUser: this.props.user.username
     };
     this.service = new AuthService();
   }
@@ -87,4 +88,4 @@ class TopicList extends Component {
   }
 }
 
-export default TopicList;
+export default TopicListLoggedIn;

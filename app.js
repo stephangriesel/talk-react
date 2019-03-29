@@ -84,4 +84,8 @@ app.use('/', index);
 app.use('/api', require('./routes/topic-routes'));
 app.use('/api', require('./routes/comment-routes'));
 
+// PUBLIC
+app.use(express.static(path.join(__dirname,'public/')));
+app.use(express.static(path.join(__dirname,'public/build')));
+
 module.exports = app;
